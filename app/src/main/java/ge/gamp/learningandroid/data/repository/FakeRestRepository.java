@@ -14,7 +14,7 @@ import ge.gamp.learningandroid.data.model.Programmer;
 class FakeRestRepository implements Repository{
     private final List<Programmer> programmers = new ArrayList<>();
     public FakeRestRepository(){
-        programmers.add(new Programmer(1, "Gurama", "java", 23, 1200));
+        programmers.add(new Programmer(1, "Gurama", "java", 23, 1200, ));
         programmers.add(new Programmer(2, "Tengiza", "java", 21, 1500));
         programmers.add(new Programmer(3, "Didgora", "java", 25, 1121));
         programmers.add(new Programmer(4, "Guaranduxt", "java", 27, 931));
@@ -76,6 +76,16 @@ class FakeRestRepository implements Repository{
         this.programmers.add(programmer);
 
         new Handler(Looper.getMainLooper()).post(() -> handler.handleResponse(true));
+    }
+
+    @Override
+    public void setProgrammers(List<Programmer> programmers) {
+
+    }
+
+    @Override
+    public void addProgrammer(Programmer programmer) {
+
     }
 
 

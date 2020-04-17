@@ -11,8 +11,6 @@ class InMemoryRepository implements Repository{
 
     // Use either this
     private List<Programmer> programmers;
-    // Or this for in memory storage
-    private Map<Integer, Programmer> programmerMap;
 
     @Override
     public void getProgrammers(ResponseHandler<List<Programmer>> handler) {
@@ -32,6 +30,12 @@ class InMemoryRepository implements Repository{
     @Override
     public void createProgrammer(Programmer programmer, ResponseHandler<Boolean> handler) {
 
+    }
+
+    @Override
+    public void addProgrammer(Programmer programmer) {
+        // EXAMPLE
+        this.programmers.add(programmer);
     }
 
 }
