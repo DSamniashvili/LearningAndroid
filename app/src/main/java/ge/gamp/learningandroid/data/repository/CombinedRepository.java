@@ -27,7 +27,13 @@ public class CombinedRepository implements Repository{
     @Override
     public void getProgrammers(ResponseHandler<List<Programmer>> handler) {
         // ToDO: Change this to work with both repositories
-        restRepository.getProgrammers(handler);
+        inMemoryRepository.getProgrammers(inMemoryProgrammer -> {
+            if(inMemoryProgrammer == null){
+                restRepository.getProgrammers(handler);
+            }else{
+                handler.handleResponse(inMemoryProgrammer);
+            }
+        });
     }
 
     @Override
@@ -44,12 +50,26 @@ public class CombinedRepository implements Repository{
     @Override
     public void deleteProgrammer(int id, ResponseHandler<Boolean> handler) {
         // ToDO: Change this to work with both repositories
-        restRepository.deleteProgrammer(id, handler);
+        restRepository.deleteProgrammer(id, (result) -> {
+            inMemoryRepository.deleteProgrammer(id, handler);
+        });
     }
 
     @Override
     public void createProgrammer(Programmer programmer, ResponseHandler<Boolean> handler) {
         // ToDO: Change this to work with both repositories
-        restRepository.createProgrammer(programmer, handler);
+        restRepository.createProgrammer(programmer, result -> {
+            inMemoryRepository.addProgrammer(programmer);
+        });
+    }
+
+    @Override
+    public void setProgrammers(List<Programmer> programmers) {
+        inMemoryRepository.setProgrammers(programmers);
+    }
+
+    @Override
+    public void addProgrammer(Programmer programmer) {
+        inMemoryRepository.addProgrammer(programmer);
     }
 }

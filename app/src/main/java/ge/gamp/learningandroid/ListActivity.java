@@ -23,7 +23,6 @@ public class ListActivity extends AppCompatActivity {
     private ListView listView;
     private ProgressBar progressBar;
 
-
     private ProgrammersListAdapter programmersListAdapter;
 
     @Override

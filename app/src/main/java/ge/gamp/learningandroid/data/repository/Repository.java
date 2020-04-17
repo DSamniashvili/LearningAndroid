@@ -10,5 +10,7 @@ public interface Repository {
     void getProgrammer(int id, ResponseHandler<Programmer> handler);
     void deleteProgrammer(int id, ResponseHandler<Boolean> handler);
     void createProgrammer(Programmer programmer, ResponseHandler<Boolean> handler);
+    void setProgrammers(List<Programmer> programmers);
+    void addProgrammer(Programmer programmer);
 //    void updateProgrammer(Programmer programmer, ResponseHandler<Programmer> handler);
 }

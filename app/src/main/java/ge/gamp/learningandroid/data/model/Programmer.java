@@ -6,16 +6,20 @@ public class Programmer {
     private String occupation;
     private int age;
     private int salary;
+    private String bio;
+    private String icon;
 
     public Programmer() {
     }
 
-    public Programmer(int id, String name, String occupation, int age, int salary) {
+    public Programmer(int id, String name, String occupation, int age, int salary, String bio, String icon) {
         this.id = id;
         this.name = name;
         this.occupation = occupation;
         this.age = age;
         this.salary = salary;
+        this.bio = bio;
+        this.icon = icon;
     }
 
     public int getId() {
@@ -56,5 +60,21 @@ public class Programmer {
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 }
